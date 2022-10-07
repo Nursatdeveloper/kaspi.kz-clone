@@ -1,4 +1,5 @@
 ﻿using Banking.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,16 @@ namespace Banking.Infrastructure.Repositories.Base
             throw new NotImplementedException();
         }
 
+        public async Task<bool> Exist(Expression<Func<T, bool>> condition)
+        {
+            var entity = await _context.Set<T>().Where(condition).FirstOrDefaultAsync();
+            if(entity is null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public Task<IEnumerable<T>> GetAllAsync()
         {
             throw new NotImplementedException();
@@ -55,9 +66,9 @@ namespace Banking.Infrastructure.Repositories.Base
             throw new NotImplementedException();
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Set<T>().FindAsync(id);
         }
 
         public bool Update(T entity)

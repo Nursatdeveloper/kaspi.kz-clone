@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
 namespace Banking.Infrastructure.Repositories.Base
 {
@@ -16,5 +11,6 @@ namespace Banking.Infrastructure.Repositories.Base
         Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> condition);
         bool Update(T entity);
         bool Delete(int id);
+        Task<bool> Exist(Expression<Func<T, bool>> condition);
     }
 }

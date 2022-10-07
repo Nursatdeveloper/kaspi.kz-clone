@@ -1,5 +1,7 @@
-﻿using Banking.Core.Entities;
+﻿using Banking.Application.Commands;
+using Banking.Core.Entities;
 using Banking.Infrastructure.Data;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Banking.API.Controllers
@@ -8,27 +10,23 @@ namespace Banking.API.Controllers
     [ApiController]
     public class AccountsController : ControllerBase
     {
-        private readonly ApplicationDbContext context;
-        public AccountsController(ApplicationDbContext context)
-        {
-            this.context = context;
-        }
-        [HttpPost]
-        [Route("user")]
-        public async Task<ActionResult> Post(User user)
-        {
-            await this.context.Users.AddAsync(user);
-            await this.context.SaveChangesAsync();
-            return Ok();
-        }
+        private readonly IMediator _mediator;
 
-        [HttpPost]
-        [Route("account")]
-        public async Task<ActionResult> PostAccount(Account account)
+        public AccountsController(IMediator mediator)
         {
-            await this.context.Accounts.AddAsync(account);
-            await this.context.SaveChangesAsync();
-            return Ok();
+            _mediator = mediator;
+        }
+        [HttpPost]
+        [Route("create")]
+        public async Task<IActionResult> Create([FromBody] CreateAccountCommand command, 
+            CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(command, cancellationToken);
+            if (response.IsSuccess)
+            {
+                return StatusCode(response.StatusCode, response.Message);
+            }
+            return StatusCode(response.StatusCode, response.Message);
         }
     }
 }

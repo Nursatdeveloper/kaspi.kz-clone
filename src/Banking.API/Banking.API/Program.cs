@@ -19,6 +19,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 {
     builder.RegisterModule<MediatorModule>();
     builder.RegisterModule<RepositoryModule>();
+    builder.RegisterModule<HelperModule>();
 });
 
 /*

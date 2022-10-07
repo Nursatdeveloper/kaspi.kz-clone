@@ -11,6 +11,10 @@ namespace Banking.API.AutofacModules
             builder.RegisterType<UserRepository>()
                 .As<IUserRepository>()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<AccountRepository>()
+                .As<IAccountRepository>()
+                .InstancePerLifetimeScope();
         }
     }
 }

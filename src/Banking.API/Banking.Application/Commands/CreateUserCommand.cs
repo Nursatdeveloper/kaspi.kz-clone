@@ -21,7 +21,6 @@ namespace Banking.Application.Commands
         [DataMember]
         public string IIN { get; init; }
         [DataMember]
-        [JsonConverter(typeof(DateOnlyJsonConverter))]
         public DateTime BirthDate { get; set; }
         [DataMember]
         public string Email { get; init; }

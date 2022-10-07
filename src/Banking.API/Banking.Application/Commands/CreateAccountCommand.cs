@@ -12,6 +12,8 @@ namespace Banking.Application.Commands
         public int UserId { get; init; }
         [DataMember]
         public string? Currency { get; init; }
+        [DataMember]
+        public string? Type { get; set; }
 
     }
 }
