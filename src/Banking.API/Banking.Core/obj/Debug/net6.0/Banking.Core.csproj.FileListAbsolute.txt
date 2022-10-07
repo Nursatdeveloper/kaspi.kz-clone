@@ -1,0 +1,12 @@
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\bin\Debug\net6.0\Banking.Core.deps.json
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\bin\Debug\net6.0\Banking.Core.dll
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\bin\Debug\net6.0\Banking.Core.pdb
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\obj\Debug\net6.0\Banking.Core.csproj.AssemblyReference.cache
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\obj\Debug\net6.0\Banking.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\obj\Debug\net6.0\Banking.Core.AssemblyInfoInputs.cache
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\obj\Debug\net6.0\Banking.Core.AssemblyInfo.cs
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\obj\Debug\net6.0\Banking.Core.csproj.CoreCompileInputs.cache
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\obj\Debug\net6.0\Banking.Core.dll
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\obj\Debug\net6.0\refint\Banking.Core.dll
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\obj\Debug\net6.0\Banking.Core.pdb
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Core\obj\Debug\net6.0\ref\Banking.Core.dll

@@ -1,0 +1,17 @@
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\bin\Debug\net6.0\Banking.Application.deps.json
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\bin\Debug\net6.0\Banking.Application.dll
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\bin\Debug\net6.0\Banking.Application.pdb
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\bin\Debug\net6.0\Banking.Core.dll
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\bin\Debug\net6.0\Banking.Infrastructure.dll
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\bin\Debug\net6.0\Banking.Core.pdb
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\bin\Debug\net6.0\Banking.Infrastructure.pdb
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\Banking.Application.csproj.AssemblyReference.cache
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\Banking.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\Banking.Application.AssemblyInfoInputs.cache
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\Banking.Application.AssemblyInfo.cs
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\Banking.Application.csproj.CoreCompileInputs.cache
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\Banking.Application.csproj.CopyComplete
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\Banking.Application.dll
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\refint\Banking.Application.dll
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\Banking.Application.pdb
+C:\Users\Nursat\Portfolio\Kaspi.kz\src\Banking.API\Banking.Application\obj\Debug\net6.0\ref\Banking.Application.dll
