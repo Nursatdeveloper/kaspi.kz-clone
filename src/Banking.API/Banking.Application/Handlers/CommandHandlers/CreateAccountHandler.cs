@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Banking.Application.Handlers
 {
-    public class CreateAccountHandler : IRequestHandler<CreateAccountCommand, CreateResponse<Account>>
+    public class CreateAccountHandler : IRequestHandler<CreateAccountCommand, CreatedResponse<Account>>
     {
         private readonly IUserRepository _userRepository;
         private readonly IAccountRepository _accountRepository;
@@ -21,13 +21,13 @@ namespace Banking.Application.Handlers
             _accountHelper = accountHelper;
         }
 
-        public async Task<CreateResponse<Account>> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
+        public async Task<CreatedResponse<Account>> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
             User user = await _userRepository.GetByIdAsync(request.UserId);
 
             if(user is null)
             {
-                CreateResponse<Account> userNotFoundResponse = new()
+                CreatedResponse<Account> userNotFoundResponse = new()
                 {
                     Id = 0,
                     Entity = null,
@@ -53,7 +53,7 @@ namespace Banking.Application.Handlers
             var createdAccount = await _accountRepository.CreateAsync(account);
             if (createdAccount is null)
             {
-                CreateResponse<Account> createFailedResponse = new()
+                CreatedResponse<Account> createFailedResponse = new()
                 {
                     Id = 0,
                     Entity = null,
@@ -64,7 +64,7 @@ namespace Banking.Application.Handlers
                 return createFailedResponse;
             }
             
-            CreateResponse<Account> createSuccessResponse = new()
+            CreatedResponse<Account> createSuccessResponse = new()
             {
                 Id = createdAccount.Id,
                 Entity = createdAccount,

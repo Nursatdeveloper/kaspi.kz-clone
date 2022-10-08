@@ -1,5 +1,6 @@
 ﻿using Banking.Application.Helpers;
 using Banking.Application.Responses;
+using Banking.Core.Entities;
 using MediatR;
 using Newtonsoft.Json;
 using System;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 namespace Banking.Application.Commands
 {
     [DataContract]
-    public class CreateUserCommand : IRequest<CreateUserResponse>
+    public class CreateUserCommand : IRequest<CreatedResponse<User>>
     {
         [DataMember]
         public string FirstName { get; init; }

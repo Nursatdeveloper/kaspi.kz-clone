@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace Banking.Application.Commands
 {
     [DataContract]
-    public class CreateAccountCommand : IRequest<CreateResponse<Account>>
+    public class CreateAccountCommand : IRequest<CreatedResponse<Account>>
     {
         [DataMember]
         public int UserId { get; init; }

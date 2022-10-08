@@ -1,8 +1,6 @@
-﻿
-
-namespace Banking.Application.Responses
+﻿namespace Banking.Application.Responses
 {
-    public class CreateResponse<T> where T : class
+    public class CreatedResponse<T> where T : class
     {
         public int Id { get; set; }
         public T? Entity { get; set; }

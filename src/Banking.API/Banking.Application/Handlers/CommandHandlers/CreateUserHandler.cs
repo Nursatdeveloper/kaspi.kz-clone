@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Banking.Application.Handlers
 {
-    public class CreateUserHandler : IRequestHandler<CreateUserCommand, CreateUserResponse>
+    public class CreateUserHandler : IRequestHandler<CreateUserCommand, CreatedResponse<User>>
     {
         private readonly IUserRepository _userRepository;
 
@@ -20,7 +20,7 @@ namespace Banking.Application.Handlers
         {
             _userRepository = userRepository;
         }
-        public async Task<CreateUserResponse> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<CreatedResponse<User>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             User user = new()
             {
@@ -41,10 +41,11 @@ namespace Banking.Application.Handlers
             var createdUser = await _userRepository.CreateAsync(user);
             if(createdUser is not null)
             {
-                CreateUserResponse successResponse = new()
+                CreatedResponse<User> successResponse = new()
                 {
-                    UserId = createdUser.Id,
-                    CreatedUser = createdUser,
+                    Id = createdUser.Id,
+                    Entity = createdUser,
+                    StatusCode = 201,
                     IsSuccess = true,
                     Message = "User was successfully created!"
                 };
@@ -52,11 +53,12 @@ namespace Banking.Application.Handlers
             }
             else
             {
-                CreateUserResponse failureResponse = new()
+                CreatedResponse<User> failureResponse = new()
                 {
-                    UserId = 0,
-                    CreatedUser = null,
+                    Id = 0,
+                    Entity = null,
                     IsSuccess = false,
+                    StatusCode = 500,
                     Message = "Could not create user!"
                 };
                 return failureResponse;
