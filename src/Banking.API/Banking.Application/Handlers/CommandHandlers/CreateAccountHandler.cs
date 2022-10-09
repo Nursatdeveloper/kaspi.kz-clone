@@ -63,7 +63,8 @@ namespace Banking.Application.Handlers
                 };
                 return createFailedResponse;
             }
-            
+            user.Accounts.Add(createdAccount);
+            _userRepository.Update(user);
             CreatedResponse<Account> createSuccessResponse = new()
             {
                 Id = createdAccount.Id,
@@ -73,6 +74,8 @@ namespace Banking.Application.Handlers
                 Message = "Account was created successfully!"
             };
             return createSuccessResponse;
+
+
 
         }
     }

@@ -1,4 +1,6 @@
-﻿using Banking.Application.Commands;
+﻿using AutoMapper;
+using Banking.API.ViewModels;
+using Banking.Application.Commands;
 using Banking.Application.Queries;
 using Banking.Application.Responses;
 using Banking.Core.Entities;
@@ -13,10 +15,12 @@ namespace Banking.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public UsersController(IMediator mediator)
+        public UsersController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
 
         [HttpGet("{id}", Name = "GetUserById")]
@@ -28,7 +32,8 @@ namespace Banking.API.Controllers
                 new GetEntityByIdQuery<User, GetEntityResponse<User>>(id));
             if (response.IsSuccess)
             {
-                return Ok(response.Entity);
+                UserViewModel userViewModel = _mapper.Map<UserViewModel>(response.Entity);
+                return Ok(userViewModel);
             }
             return StatusCode(response.StatusCode, response.Message);
         }

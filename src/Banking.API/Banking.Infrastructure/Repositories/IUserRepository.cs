@@ -5,5 +5,6 @@ namespace Banking.Infrastructure.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {
+        Task<User> GetUserById(int id);
     }
 }

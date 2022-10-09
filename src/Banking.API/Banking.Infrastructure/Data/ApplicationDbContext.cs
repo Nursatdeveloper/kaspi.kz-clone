@@ -17,7 +17,7 @@ namespace Banking.Infrastructure.Data
         {
             // One to many relationship between User and Account
             // User can have multiple Accounts
-
+            
             modelBuilder.Entity<Account>()
                 .HasOne<User>(u => u.User)
                 .WithMany(a => a.Accounts)

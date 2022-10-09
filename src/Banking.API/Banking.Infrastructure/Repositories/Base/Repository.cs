@@ -56,9 +56,10 @@ namespace Banking.Infrastructure.Repositories.Base
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> condition)
+        public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> condition)
         {
-            throw new NotImplementedException();
+            List<T> entities = await _context.Set<T>().Where(condition).ToListAsync();
+            return entities;
         }
 
         public Task<T> GetAsync(Expression<Func<T, bool>> condition)
@@ -73,7 +74,17 @@ namespace Banking.Infrastructure.Repositories.Base
 
         public bool Update(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Set<T>().Update(entity);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
     }
 }

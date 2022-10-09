@@ -11,15 +11,17 @@ namespace Banking.Application.Handlers.QueryHandlers
     public class GetUserByIdHandler : IRequestHandler<GetEntityByIdQuery<User, GetEntityResponse<User>>, GetEntityResponse<User>>
     {
         private readonly IUserRepository _userRepository;
+        private readonly IAccountRepository _accountRepository;
 
-        public GetUserByIdHandler(IUserRepository userRepository)
+        public GetUserByIdHandler(IUserRepository userRepository, IAccountRepository accountRepository)
         {
             _userRepository = userRepository;
+            _accountRepository = accountRepository;
         }
 
         public async Task<GetEntityResponse<User>> Handle(GetEntityByIdQuery<User, GetEntityResponse<User>> request, CancellationToken cancellationToken)
         {
-            User user = await _userRepository.GetByIdAsync(request.Id);
+            User user = await _userRepository.GetUserById(request.Id);
             if(user is null)
             {
                 GetEntityResponse<User> userNotFoundResponse = new()
@@ -31,6 +33,7 @@ namespace Banking.Application.Handlers.QueryHandlers
                 };
                 return userNotFoundResponse;
             }
+
             GetEntityResponse<User> successResponse = new()
             {
                 Entity = user,
