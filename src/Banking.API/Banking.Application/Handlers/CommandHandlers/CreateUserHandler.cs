@@ -19,6 +19,8 @@ namespace Banking.Application.Handlers
         }
         public async Task<CreatedResponse<User>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
+            cancellationToken.ThrowIfCancellationRequested();
+
             if(!_userValidator.ValidateIIN(request.IIN))
             {
                 CreatedResponse<User> invalidIINResponse = new()
