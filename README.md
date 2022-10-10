@@ -1,17 +1,17 @@
 # kaspi.kz-clone
-Full backend and frontend clone of the number one fintech app in Kazakhstan kaspi.kz
+Full backend and frontend clone of the number one fintech app in Kazakhstan kaspi.kz<br/>
 Application was built for only practice purposes!
 
 # Briefly about the development process
 
-Backend will be in microservice architecture
+Backend will be in microservice architecture <br/>
 Each microservice will be implemented by CQRS (Command Query Responsibility Segregation) pattern
 
 ## For the phase 1
-Microservice will interact with web client
+Microservice will interact with web client<br/>
 Overall architecture of application
 ## For the phase 2
-Microservice will interact with mobile client in Kotlin
+Microservice will interact with mobile client in Kotlin <br/>
 Overall architecture of application
 
 # Microservice documentation
