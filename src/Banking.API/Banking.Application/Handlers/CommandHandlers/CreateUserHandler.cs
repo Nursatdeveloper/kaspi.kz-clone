@@ -1,27 +1,36 @@
 ﻿using Banking.Application.Commands;
 using Banking.Application.Responses;
+using Banking.Application.Validators;
 using Banking.Core.Entities;
 using Banking.Infrastructure.Repositories;
-using BCrypt.Net;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Banking.Application.Handlers
 {
     public class CreateUserHandler : IRequestHandler<CreateUserCommand, CreatedResponse<User>>
     {
         private readonly IUserRepository _userRepository;
+        private readonly IUserValidator _userValidator;
 
-        public CreateUserHandler(IUserRepository userRepository)
+        public CreateUserHandler(IUserRepository userRepository, IUserValidator userValidator)
         {
             _userRepository = userRepository;
+            _userValidator = userValidator;
         }
         public async Task<CreatedResponse<User>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
+            if(!_userValidator.ValidateIIN(request.IIN))
+            {
+                CreatedResponse<User> invalidIINResponse = new()
+                {
+                    Id = 0,
+                    Entity = null,
+                    StatusCode = 400,
+                    Message = "Invalid IIN!",
+                    IsSuccess = false
+                };
+                return invalidIINResponse;
+            }
             User user = new()
             {
                 FirstName = request.FirstName,

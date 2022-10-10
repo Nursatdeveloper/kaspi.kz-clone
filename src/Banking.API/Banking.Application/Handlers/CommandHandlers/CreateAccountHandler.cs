@@ -1,6 +1,7 @@
 ﻿using Banking.Application.Commands;
 using Banking.Application.Helpers;
 using Banking.Application.Responses;
+using Banking.Application.Validators;
 using Banking.Core.Entities;
 using Banking.Infrastructure.Repositories;
 using MediatR;
@@ -14,7 +15,9 @@ namespace Banking.Application.Handlers
         private readonly IAccountHelper _accountHelper;
 
         public CreateAccountHandler(
-            IUserRepository userRepository, IAccountRepository accountRepository, IAccountHelper accountHelper)
+            IUserRepository userRepository, 
+            IAccountRepository accountRepository, 
+            IAccountHelper accountHelper)
         {
             _userRepository = userRepository;
             _accountRepository = accountRepository;
@@ -37,6 +40,7 @@ namespace Banking.Application.Handlers
                 };
                 return userNotFoundResponse;
             }
+
 
             Account account = new()
             {
