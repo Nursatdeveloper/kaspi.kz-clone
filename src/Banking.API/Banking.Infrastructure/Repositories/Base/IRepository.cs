@@ -10,7 +10,7 @@ namespace Banking.Infrastructure.Repositories.Base
         Task<IEnumerable<T>> GetAllAsync();
         Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> condition);
         bool Update(T entity);
-        bool Delete(int id);
+        Task<bool> Delete(int id);
         Task<bool> Exist(Expression<Func<T, bool>> condition);
     }
 }

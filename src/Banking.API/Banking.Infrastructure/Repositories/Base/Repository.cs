@@ -36,9 +36,28 @@ namespace Banking.Infrastructure.Repositories.Base
             }
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entity = await _context.Set<T>().FindAsync(id);
+                if(entity is null)
+                {
+                    return false;
+                }
+                var deletedEntity = _context.Set<T>().Remove(entity);
+                if(deletedEntity.Entity is not null)
+                {
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
 
         public async Task<bool> Exist(Expression<Func<T, bool>> condition)

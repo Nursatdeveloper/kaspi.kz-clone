@@ -59,7 +59,13 @@ namespace Banking.API.Controllers
             return StatusCode(response.StatusCode, response.Message);
         }
 
-        
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            var response = await _mediator.Send(new DeleteEntityQuery<User>(id));
+            return Ok(response.Message);
+        }
 
 
 
